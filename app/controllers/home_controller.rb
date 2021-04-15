@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   def about
   end
 
-  def content
+  def content 
   end
 end
