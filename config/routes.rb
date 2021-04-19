@@ -9,6 +9,6 @@ get '/contact', to: 'static_pages#contact'
 #signup(localhost:3002)
 get '/signup', to: 'users#new'
 
+get '/signup', to: 'user#new'
+
 end
-
-
