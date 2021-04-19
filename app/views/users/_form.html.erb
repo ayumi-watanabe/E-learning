@@ -1,0 +1,21 @@
+<%probide (title:"signup")%>
+    <div class="form">]
+        <h1 class="text-center">Signup</h1>
+        <div class="container">
+            <%= form_for @user do |f| %>
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %>
+
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control" %>
+
+                <%= f.label :password %>
+                <%= f.text_field, class: "form-control" %>
+
+                <%= f.label :password_confirmation, "Confirm Password" %>
+                <%= f.text_field :password_confirmation, class: "form-control" %>
+
+                <%= f.submit "Save", class: "btn btn-block btn-success" %>
+            <% end %>
+        </div>
+    </div>
