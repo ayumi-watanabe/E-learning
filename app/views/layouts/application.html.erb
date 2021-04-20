@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title><%= yield(:title) %>  | E-learning</title>
     <title>ELearningAyumi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/headeer' %>
+
+    <div class="container pt-4 mb-0">
+      <%=render 'shared/error_message' %>
+    </div>
+
+    <div class="container m-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
