@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: app_name_development
+  database: ayumi_elearning_development
 
 test:
   <<: *default
-  database: app_name_test
+  database: ayumi_elearning_test
 
-production:
+production: 
   <<: *default
-  database: app_name_production
-  username: app_name
-  password: <%= ENV['APP_NAME_DATABASE_PASSWORD'] %>
+  database: ayumi_elearning_production
+  username: ayumi-elearning_name
+  password: <%= ENV['AYUMI_ELEARNING_DATABASE_PASSWORD'] %>
