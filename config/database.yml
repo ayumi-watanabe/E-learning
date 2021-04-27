@@ -8,7 +8,7 @@ default: &default
 
 development:
   <<: *default
-  database: ayumi_elearning_development
+  database: e-learning_ayumi_db
 
 test:
   <<: *default

@@ -1,27 +1,6 @@
-<% provide(title:'Signup')%>
-<div class="jumbotron bg-dark text-light m-4">
+<% provide(:title, "Signup") %>
+<div class="jumbotron bg-light text-center m-4">
+    <h1 class="text-center">Signup</h1>
     <%= render 'form' %>
-
-    <% provide(:title, 'Login')%>
-    <div class="form jumbotron bg-dark text-light">
-    <h1 class="text-center display-4">Login</h1>
-    <h1 class=text-center>Sign up</h1>
-        <div class="container">
-            <%= form_for(@user) do |f| %>
-            <%= f.label :name%>
-            <%= f.text_filed :name%>
-
-            <%= f.label :email%>
-            <%= f.email_field :email%>
-
-            <%= f.label :password%>
-            <%= f.password_field :password%>
-
-            <%= f.label :password_confirmation, "Confirmation"%>
-            <%= f.password_confirmation :password_confirmation%>
-
-            <%= f.submit "Create my account", class: "btn btn-success" %>
-            <% end %>
-        </div>
-
-
+    <p>This will be a sign up page for new users</p>
+</div>

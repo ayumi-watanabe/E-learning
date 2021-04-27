@@ -1,2 +1,16 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<%= provide(:title, 'User') %>
+<div class="form contact">
+    <h1 class="text-center">List of Users</h1>
+    <div class="container">
+        <ul class="users">
+            <% @user.each do |user| %>
+                <li>
+                    <%= gravatar_for user, size: 52 %>
+                    <%= link_to user.name, user %>
+                    <%= link_to 'delete', user_path(user), method: :delete, date: { confirm: "You sure?"} %>
+                </li>
+                <% end %>
+                <%= will_paginate%>
+        </ul>
+    </div>
+</div>
