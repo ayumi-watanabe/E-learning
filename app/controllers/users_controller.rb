@@ -22,6 +22,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success]= "Save successfully!"
+       redirect_to @user
+    else
+      flash[:danger] = "Invalid content. Try again."
+      render 'edit'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to user_url
+  end
+
   private
     def user_params 
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
