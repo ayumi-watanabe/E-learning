@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :only_loggedin_users, only:[:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
+
   def index
     @users = User.paginate(page:params[:page], per_page: 10)
   end
@@ -44,14 +45,36 @@ class UsersController < ApplicationController
     redirect_to user_url
   end
 
+  def following 
+    @title = "Following"
+    @user = User.find(params[:id])
+    @user = @user.followed_users.paginate(page: params[:pate], per_page: 5)
+    @all_users = @user.followed_users
+    render 'show_follow'
+  end
+
+  def followers
+    @title ="Followers"
+    @user = User.find(params[:id])
+    @user = @user.followers_users.paginate(page: params[:pate], per_page: 5)
+    @all_users = @user.followers_users
+    render 'show_follow'
+  end
+
   private
     def user_params 
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def only_loggedin_users
+      redirect_to login_url unless logged_in?
     end
 
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
+
+    
 
 end
