@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
 
-  resources :users
   resources :sessions, only:[:new, :create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
   get '/signup', to: 'users#new'
 
   get '/login', to: 'sessions#new'
@@ -15,7 +16,10 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
-  resources :user do
+  resources :users do
+    member do
+      get :following, :followers
+    end
   end
 
 
