@@ -6,7 +6,7 @@
         <ul class="categories">
             <% @categories.each do |category| %>
                 <li>
-                    
+                    <%= link_to category.title, admin_category_path(category) %>
                 </li>
             <% end %>
             
