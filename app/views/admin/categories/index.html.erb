@@ -7,6 +7,8 @@
             <% @categories.each do |category| %>
                 <li>
                     <%= link_to category.title, admin_category_path(category) %>
+                    <%= link_to 'Edit', edit_admin_category_path(category),  class: "btn btn-info" %>
+                    <%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "You sure?"},  class: "btn btn-danger" %>
                 </li>
             <% end %>
             
