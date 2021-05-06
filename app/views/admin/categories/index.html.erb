@@ -1,0 +1,15 @@
+<%= provide(:title, 'Category') %>
+<div class="contact">
+    <h1 class="text-center">List of categories</h1>
+    <%= link_to "Create New Category", new_admin_category_path, class: "btn btn-primary" %>
+    <div class="container">
+        <ul class="categories">
+            <% @categories.each do |category| %>
+                <li>
+                    <%= link_to category.title, admin_category_path(category) %>
+                </li>
+            <% end %>
+            
+        </ul>
+    </div>
+</div>

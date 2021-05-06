@@ -6,15 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.order(:create_at).take(7)
-50.times do
-    content = Faker: :Lorem.sentence(3)
-    user.each { |user| user.microposts.create!(contnet:content) }
+User.create(
+  name: "Admin Framiga",
+  email: "framiga@email.com",
+  password: "password",
+  is_admin: true
+)
+25.times do |n|
+  name = Faker::Name.name
+  email = "user#{n+1}@mail.com"
+  password = "password"
+  User.create(
+    name: name,
+    email: email,
+    password: password,
+    is_admin: false
+  )
 end
 
 users = User.all
 user = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..25]
+followers = users[3..15]
 following.each{ |followed| user.follow(followed) }
 followers.each{ |follower| follower.follow(user) }
