@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  #before_action :admin_log_in
+  before_action :admin_log_in
 
   def index
     @categories = Category.all
@@ -13,7 +13,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       flash[:success]="Saved successfully!"
-      redirect_to root_url
+      redirect_to admin_categories_url
     else
       flash[:danger]="Invalid content. Try again"
       render 'new'
@@ -25,4 +25,8 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
   end
+
+  private
+    def category_params
+    end
 end
