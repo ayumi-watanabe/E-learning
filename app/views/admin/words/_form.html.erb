@@ -1,0 +1,6 @@
+<%= form_for ([:admin, :category, @word]) do |f| %>
+    <%= f.label :word %>
+    <%= f.text_field :word, class: "form-control" %>
+
+    <%= f.submit "Save", class: "btn btn-block btn-success" %>
+<% end %>
