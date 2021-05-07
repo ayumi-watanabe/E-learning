@@ -8,6 +8,9 @@
             <p><%= @category.description %></p>
         </section>
     </aside>
+    <div>
+        <%= link_to "Add Word", new_admin_category_word_path(@category.id) %>
+    </div>
 </div>
 
         
